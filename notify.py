@@ -223,7 +223,11 @@ class Notify(object):
                 sign = parse.quote_plus(base64.b64encode(hmac_code))
                 url = 'https://oapi.dingtalk.com/robot/send?access_' \
                     f'token={DD_BOT_TOKEN}&timestamp={timestamp}&sign={sign}'
-
+        
+        headers = {
+            'content-type': 'application/json;charset=utf-8'
+        }
+        
         data = {
             'msgtype': 'text',
             'text': {
@@ -233,7 +237,7 @@ class Notify(object):
         conf = ['钉钉机器人', 'DD_BOT_TOKEN', DD_BOT_TOKEN, 'errcode', 0]
         name, needs, token, text, code  = conf
 
-        return self.pushTemplate('post', url, data=data, name=name, needs=needs, token=token, text=text, code=code)
+        return self.pushTemplate('post', url, json=data, headers=headers, name=name, needs=needs, token=token, text=text, code=code)
 
     def wwBot(self, text, status, desp):
         WW_BOT_KEY = self.WW_BOT_KEY
