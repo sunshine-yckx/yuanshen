@@ -138,6 +138,10 @@ class Sign(Base):
         info_list = self.get_info()
         message_list = []
         for i in range(len(info_list)):
+            if info_list[i]['retcode'] != 0:
+                log.error(info_list[i]['message'])
+                break
+
             today = info_list[i]['data']['today']
             total_sign_day = info_list[i]['data']['total_sign_day']
             awards = Roles(self._cookie).get_awards()['data']['awards']
