@@ -60,7 +60,7 @@ Genshin Impact Helper 可以自动化为你获取原神每日福利。
 - 将仓库默认分支设置为 master 分支
 
 ### 2. 获取 Cookie
-
+打开无痕模式（现在的米游社的Cookie需要浏览器在无痕模式下才能获取 ）  
 浏览器打开 https://bbs.mihoyo.com/ys/ 并登录账号
 
 #### 2.1 方法一
