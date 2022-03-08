@@ -77,7 +77,7 @@ class Sign(Base):
             time.sleep(10)
             message = {
                 'today': today,
-                'region_name': '',
+                'region_name': '国际服',
                 'uid': uid,
                 'total_sign_day': total_sign_day,
                 'end': '',
@@ -147,7 +147,7 @@ if __name__ == '__main__':
         log.info(f'准备为 NO.{i + 1} 账号签到...')
         try:
             ltoken = cookie_list[i].split('ltoken=')[1].split(';')[0]
-            uid = cookie_list[i].split('account_id=')[1].split(';')[0]
+            uid = cookie_list[i].split('ltuid=')[1].split(';')[0]
             msg = f'	NO.{i + 1} 账号:{Sign(cookie_list[i]).run()}'
             msg_list.append(msg)
             success_num = success_num + 1
