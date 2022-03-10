@@ -154,14 +154,10 @@ class Notify(object):
     def bark(self, text, status, desp):
         BARK_KEY = self.BARK_KEY
         if 'BARK_KEY' in os.environ:
-            # 自建服务端的用户
-            if os.environ['BARK_KEY'].find(
-                'https') != -1 or os.environ['BARK_KEY'].find('http') != -1:
-                BARK_KEY = os.environ['BARK_KEY']
-            else:
-                BARK_KEY = f"https://api.day.app/{os.environ['BARK_KEY']}"
+            BARK_KEY = os.environ['BARK_KEY']
+        
         # 本地只填写设备码的用户
-        elif BARK_KEY and BARK_KEY.find(
+        if BARK_KEY and BARK_KEY.find(
             'https') == -1 and BARK_KEY.find('http') == -1:
             BARK_KEY = f'https://api.day.app/{BARK_KEY}'
 
