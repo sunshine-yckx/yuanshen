@@ -222,6 +222,7 @@ if __name__ == '__main__':
     log.info(f'检测到共配置了 {len(cookie_list)} 个帐号')
     for i in range(len(cookie_list)):
         log.info(f'准备为 NO.{i + 1} 账号签到...')
+        log.info(f'NO.{i + 1} 账号的COOKIE: {cookie_list[i]} ')
         try:
             msg = f'	NO.{i + 1} 账号:{Sign(cookie_list[i]).run()}'
             msg_list.append(msg)
